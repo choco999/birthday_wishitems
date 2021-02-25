@@ -15,8 +15,8 @@
     echo "<table><tbody>";
 
     foreach($records as $record){
-        echo"<tr><td>"  .$record['first_name']. "</td><td>" 
-                        .$record['last_name'] . "</td><td>"
+        echo"<tr><td>"  .$record['title']. "</td><td>" 
+                        .$record['author'] . "</td><td>"
                         .$record['age'] . "</td><td>" 
                         .$record['gender'] . "</td><td>" 
                         .$record['birthday_item'] . "</td></tr>";

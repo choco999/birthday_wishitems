@@ -1,8 +1,8 @@
 <?php require('header.php'); ?>
 
     <?php
-        $first_name = filter_input(INPUT_POST, 'fname');
-        $last_name = filter_input(INPUT_POST, 'lname');
+        $title = filter_input(INPUT_POST, 'title');
+        $author = filter_input(INPUT_POST, 'author');
         $age = filter_input(INPUT_POST, 'age', FILTER_VALIDATE_INT);
         $gender = filter_input(INPUT_POST, 'gender');
         $birthday_item = filter_input(INPUT_POST, 'bday-item');
@@ -19,13 +19,13 @@
             try {
                 require('connect.php');
 
-                $sql = "INSERT into course_project(first_name, last_name, age, gender, birthday_item) 
-                        VALUES (:firstname, :lastname, :age, :gender, :bdayitem)";
+                $sql = "INSERT into course_project(title, author, age, gender, birthday_item) 
+                        VALUES (:title, :author, :age, :gender, :bdayitem)";
 
                 $statement = $db->prepare($sql);
                 
-                $statement->bindParam(':firstname',$first_name);
-                $statement->bindParam(':lastname',$last_name);
+                $statement->bindParam(':title',$title);
+                $statement->bindParam(':author',$author);
                 $statement->bindParam(':age',$age);
                 $statement->bindParam(':gender',$gender);
                 $statement->bindParam(':bdayitem',$birthday_item);

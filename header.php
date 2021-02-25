@@ -9,6 +9,7 @@
 
 </head>
 <body>
+    <div class="container">
     <header>
         <h1>Birthday Wish Item Forum</h1>
     </header>

@@ -1,21 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thank you for creating your birthday item</title>
-</head>
-<body>
-    <header>
-        <h1>Birthday Wish Item Forum</h1>
-    </header>
+<?php require('header.php'); ?>
 
     <?php
       
     require('connect.php');
 
-    $sql = "SELECT * FROM course_projects";
+    $sql = "SELECT * FROM course_project";
 
     $statement = $db->prepare($sql);
 
@@ -39,8 +28,4 @@
 
     ?>
 
-    <footer>
-        <p>COMP1006 - Chisato Sakata</p>
-    </footer>
-</body>
-</html>
+<?php require('footer.php'); ?>

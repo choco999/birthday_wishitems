@@ -10,6 +10,14 @@
 </head>
 <body>
     <div class="container">
+
+        <li>
+            <a href="index.php"> Add New Post <span class="sr-only">(current)</span></a>
+        </li>
+        <li>
+            <a href="view.php">View Posts</a>
+        </li>
+
     <header>
         <h1>Birthday Wish Item Forum</h1>
     </header>

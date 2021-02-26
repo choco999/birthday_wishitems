@@ -19,7 +19,8 @@
                         .$record['author'] . "</td><td>"
                         .$record['age'] . "</td><td>" 
                         .$record['gender'] . "</td><td>" 
-                        .$record['birthday_item'] . "</td></tr>";
+                        .$record['birthday_item'] . "</td><td><a href='delete.php?id=" . $record['id'] ."'>Delete</a></td>
+                        </tr>";
     }
 
     echo "</tbody></table>";

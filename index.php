@@ -39,15 +39,15 @@
             <input type="hidden" name="id" value="<?php echo $id?>">
 
             <label for="title">Title</label>
-            <input type="text" name="title" id="title" class="form-control" value="<?php echo $title?>">
+            <input type="text" name="title" id="title" class="form-control" value="<?php echo $title?>" required>
             <label for="author">Author</label>
-            <input type="text" name="author" id="author" class="form-control" value="<?php echo $author?>">
+            <input type="text" name="author" id="author" class="form-control" value="<?php echo $author?>" required>
             <label for="age">Age</label>
-            <input type="number" name="age" id="age" class="form-control" value="<?php echo $age?>">
+            <input type="number" name="age" id="age" class="form-control" value="<?php echo $age?>" required>
 
             <label for="gender">Gender</label>
             <div>
-                <input type="radio" id="male" name="gender" value="male" <?php echo ($gender == 'male') ?  "checked" : "" ;  ?>>
+                <input type="radio" id="male" name="gender" value="male" checked <?php echo ($gender == 'male') ?  "checked" : "" ;  ?>>
                 <label for="male">Male</label>
                 <input type="radio" id="female" name="gender" value="female" <?php echo ($gender == 'female') ?  "checked" : "" ;  ?>>
                 <label for="female">Female</label>
@@ -56,7 +56,7 @@
             </div>
 
             <label for="bday-item">What do you want for your birthday?</label>
-            <textarea name="bday-item" id="bday-item" cols="30" rows="10" class="form-control"><?php echo $birthday_item?></textarea>
+            <textarea name="bday-item" id="bday-item" cols="30" rows="10" class="form-control" required><?php echo $birthday_item?></textarea>
             <input type="submit" value="submit" name="submit">
         </form>
     </main>

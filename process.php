@@ -2,6 +2,7 @@
     ob_start();
     require('header.php'); 
 
+    // sanitization
     $title = filter_input(INPUT_POST, 'title', FILTER_SANITIZE_STRING);
     $author = filter_input(INPUT_POST, 'author', FILTER_SANITIZE_STRING);
     $age = filter_input(INPUT_POST, 'age', FILTER_SANITIZE_NUMBER_INT);
@@ -11,6 +12,12 @@
     $id = null;
     $id = filter_input(INPUT_POST,'id', FILTER_SANITIZE_NUMBER_INT);
 
+    // Normalization
+    $title = mb_convert_case($title, MB_CASE_TITLE);
+    $author = mb_convert_case($author, MB_CASE_TITLE);
+    $birthday_item = mb_convert_case($birthday_item, MB_CASE_TITLE);
+
+    // validation
     $errors = [];
     if(empty($title)){
         $errors[] = "Title is required";
@@ -77,10 +84,12 @@
             header('location:error.php');
         }
     }
+
+    
     
     require('footer.php'); 
     ob_flush();
 
-    var_dump($title, $author, $age, $gender, $birthday_item);
-    var_dump($errors);
+    //var_dump($title, $author, $age, $gender, $birthday_item);
+    //var_dump($errors);
 ?>

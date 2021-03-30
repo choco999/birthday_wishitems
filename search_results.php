@@ -38,8 +38,9 @@
         if($statement->rowCount() >= 1){
             echo "<h1> We found " . $statement->rowCount() . " items related to '" . $search_term. "'</h1>";
             while($results = $statement->fetch()){
-                echo "<tr><td>" .$results['title'] . "</td><td>" 
-                                .$results['birthday_item'] . "</td></tr>";
+                // echo "<tr><td>Title: " .$results['title'] . "</td><td> Birthday Item: " 
+                //                 .$results['birthday_item'] . "</td></tr>";
+                echo "<li>" . $results['birthday_item'] . "</li>";
             }
         }
         else {

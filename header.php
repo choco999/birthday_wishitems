@@ -9,6 +9,7 @@
 
 </head>
 <body>
+    <?php include_once('notification.php') ?>
     <div class="container">
 
         <li>

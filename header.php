@@ -11,13 +11,25 @@
 <body>
     <?php include_once('notification.php') ?>
     <div class="container">
+    
 
-        <li>
-            <a href="index.php"> Add New Post <span class="sr-only">(current)</span></a>
-        </li>
-        <li>
-            <a href="view.php">View Posts</a>
-        </li>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.php"> Add New Post <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="view.php">View Posts</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
     <header>
         <h1>Birthday Wish Item Forum</h1>

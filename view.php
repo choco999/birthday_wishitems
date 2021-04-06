@@ -12,7 +12,7 @@
     
     $records = $statement->fetchAll();
 
-    echo "<table><tbody>";
+    echo "<table class='table'><tbody>";
 
     foreach($records as $record){
         echo"<tr><td>"  .$record['title']. "</td><td>" 

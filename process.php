@@ -97,7 +97,7 @@
 
         $statement->execute();
         
-        //echo "<a href='view.php'> View All Birthday Wish Items </a>"; 
+        $_SESSION['successes'][] = "You have been added your item successfully.";
 
         $statement->closeCursor();
 

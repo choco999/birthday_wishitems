@@ -37,10 +37,10 @@
                 <input class="form-control" type="email" name="email_confirmation" placeholder="cs@test.com" value="<?= $register_values['email_confirmation'] ?? null ?>" required>
 
                 <label for="password">Password:</label>
-                <input class="form-control" type="password" name="password" value="<?= $register_values['password'] ?? null ?>" required>
+                <input class="form-control" type="password" name="password" required>
 
                 <label for="password_confirmation">Password Confirmation:</label>
-                <input class="form-control" type="password" name="password_confirmation" value="<?= $register_values['password_confirmation'] ?? null ?>" required>
+                <input class="form-control" type="password" name="password_confirmation" required>
 
                 <!-- Add the recaptcha field -->
                 <input type="hidden" name="recaptcha_response" id="recaptchaResponse">

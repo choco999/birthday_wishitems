@@ -50,8 +50,11 @@
     // if it's empty, assign it to $errors array
     foreach ($required_fields as $field) {
         if (empty($_POST[$field])) {
-          $human_field = str_replace("_", " ", $field);
-          $errors[] = "{$human_field} is required.";
+            $human_field = str_replace("_", " ", $field);
+            $errors[] = "{$human_field} is required.";
+        } else {
+            if ($field === "password" || $field === "password_confirmation") continue;
+            $$field = filter_var($$field, FILTER_SANITIZE_STRING);
         }
     }
 
@@ -65,7 +68,7 @@
     }
 
     // password validation
-    if ($_POST['password'] !== $_POST['password_confirmation']) {
+    if ($password !== $password_confirmation) {
         $errors[] = "The password doesn't match the password confirmation field";
     }
 
@@ -86,7 +89,7 @@
     $password = password_hash($password, PASSWORD_DEFAULT);
 
     // sanitization
-    require('connect.php');
+    require_once('connect.php');
 
     $sql = "INSERT INTO users (
         first_name,
@@ -107,14 +110,23 @@
     $statement->bindParam(':email', $email, PDO::PARAM_STR);
     $statement->bindParam(':password', $password, PDO::PARAM_STR);
  
-    try {
-        $statement->execute();
 
+    $statement->execute();
+
+    if($statement->errorCode() === "23000"){
+        $_SESSION['errors'][] = "You have already registered.";
+        $_SESSION['register_values'] = $_POST;
+    } else if($statement->errorCode() !=="00000"){
+        $_SESSION['errors'][] = "an error occured during registration.";
+        $_SESSION['register_values'] = $_POST;
+    } else {
         $_SESSION['successes'][] = "You have been registered successfully.";
         header("Location: login.php");
         exit;
-    } catch (Exception $error) {
-        $errors[] = $error->getMessage();
-        error_handler($errors);
     }
+
+    header("Location: register.php");
+    exit;
+
+    $statement->closeCursor();
 ?>

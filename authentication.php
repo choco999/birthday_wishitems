@@ -23,7 +23,7 @@
  
     // if (!$emaild_auth) {
     //     $_SESSION['errors'][] = "Your email are incorrect.";
-    //     $_SESSION['form_values'] = $_POST;
+    //     $_SESSION['register_values'] = $_POST;
         
      
     //     header('Location: ./login.php');
@@ -32,7 +32,7 @@
  
     // if (!$password_auth) {
     //     $_SESSION['errors'][] = "Your password are incorrect.";
-    //     $_SESSION['form_values'] = $_POST;
+    //     $_SESSION['register_values'] = $_POST;
      
     //     header('Location: ./login.php');
     //     exit();

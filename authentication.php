@@ -52,5 +52,5 @@
     
     $_SESSION['user'] = $user;
     $_SESSION['successes'][] = "You have successfully logged in.";
-    header('Location: profile.php');
+    header('Location: index.php');
     exit();

@@ -8,7 +8,7 @@
     $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
     $password = filter_input(INPUT_POST, 'password');
     $email = strtolower($email);
-    $statement->bindParam(':email', $_POST['email'], PDO::PARAM_STR);
+    $statement->bindParam(':email', $email, PDO::PARAM_STR);
  
     $statement->execute();
  

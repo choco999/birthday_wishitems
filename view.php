@@ -1,7 +1,19 @@
 <?php require('header.php'); ?>
 
-    <?php
-      
+<?php
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
+
+    if (!isset($_SESSION['user'])) {
+        $_SESSION['errors'][] = "You must log in";
+        header('Location: ./login.php');
+        exit;
+    }
+
+    $user = $_SESSION['user'];
+    
+        
     require('connect.php');
 
     $sql = "SELECT * FROM course_project";
@@ -9,7 +21,7 @@
     $statement = $db->prepare($sql);
 
     $statement->execute();
-    
+
     $records = $statement->fetchAll();
 
     echo "<table class='table'><tbody>";
@@ -27,7 +39,7 @@
 
     $statement->closeCursor();
 
-    ?>
+?>
 
 <h2>Search Birthday Wish Items Here</h2>
 <form action="search_results.php" method="get">

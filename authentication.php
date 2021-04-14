@@ -38,9 +38,11 @@
     //     exit();
     // }
 
+    $hashed = password_hash($password, PASSWORD_DEFAULT);
+
     $auth = false;
     if (!$user) $auth = false;
-    else $auth = password_verify($password, $user['password']);
+    else $auth = password_verify($password, $hashed);
 
     if (!$auth) {
         $_SESSION['errors'][] = "Your email/password are incorrect.";

@@ -3,6 +3,8 @@
     $register_values = $_SESSION['register_values'] ?? null;
 
     unset($_SESSION['register_values']);
+
+    // var_dump($register_values);
 ?>
 
 <!DOCTYPE html>
@@ -38,6 +40,8 @@
 
                 <label for="password">Password:</label>
                 <input class="form-control" type="password" name="password" required>
+                <!-- <input class="form-control" type="password" name="password" value="<?= $register_values['password'] ?? null ?>" required> -->
+
 
                 <label for="password_confirmation">Password Confirmation:</label>
                 <input class="form-control" type="password" name="password_confirmation" required>

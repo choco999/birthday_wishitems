@@ -90,6 +90,7 @@
 
     // sanitization
     require_once('connect.php');
+    $db = dbo();
 
     $sql = "INSERT INTO users (
         first_name,

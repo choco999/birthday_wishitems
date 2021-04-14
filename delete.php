@@ -6,9 +6,11 @@
     try {
         require('connect.php');
     
+        $conn = dbo();
+
         $sql = "DELETE from course_project WHERE id = :id;";
     
-        $statement = $db->prepare($sql);
+        $statement = $conn->prepare($sql);
     
         $statement->bindParam(':id', $id);
     

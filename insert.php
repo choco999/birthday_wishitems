@@ -90,6 +90,7 @@
 
     // sanitization
     require_once('connect.php');
+    $conn = dbo();
 
     $sql = "INSERT INTO users (
         first_name,
@@ -103,7 +104,7 @@
         :password
     )";
 
-    $statement = $db->prepare($sql);
+    $statement = $conn->prepare($sql);
 
     $statement->bindParam(':first_name', $first_name, PDO::PARAM_STR); 
     $statement->bindParam(':last_name', $last_name, PDO::PARAM_STR); 

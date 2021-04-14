@@ -21,12 +21,13 @@
 
     require('connect.php');
 
+    $conn = dbo();
     //$_SESSION['name'] = $name;
 
     $sql = "SELECT title, birthday_item from course_project 
             WHERE title LIKE :search_term OR birthday_item LIKE :search_term;";
     
-    $statement = $db->prepare($sql);
+    $statement = $conn->prepare($sql);
 
     $statement->bindValue(':search_term', '%' .$search_term . '%');
 

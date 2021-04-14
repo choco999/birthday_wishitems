@@ -13,12 +13,6 @@
     
     $form_values = $_SESSION['form_values'] ?? null;
 
-    // if(isset($_SESSION['form_values'])){
-    //     var_dump($form_values);
-    // }else {
-    //     echo "form_values are NOT in set";
-    // }
-
     unset($_SESSION['form_values']);
 
     $id = null;
@@ -34,9 +28,11 @@
 
         require('connect.php');
 
+        $conn = dbo();
+
         $sql = "SELECT * from course_project Where id = :id;";
 
-        $statement = $db->prepare($sql);
+        $statement = $conn->prepare($sql);
 
         $statement->bindParam(':id', $id);
 

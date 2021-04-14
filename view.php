@@ -16,9 +16,11 @@
         
     require('connect.php');
 
+    $conn = dbo();
+
     $sql = "SELECT * FROM course_project";
 
-    $statement = $db->prepare($sql);
+    $statement = $conn->prepare($sql);
 
     $statement->execute();
 

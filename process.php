@@ -72,6 +72,8 @@
     try {
         require('connect.php');
 
+        $conn = dbo();
+
         if(!empty($id)) {
             $sql = "UPDATE course_project SET title = :title, author= :author, age = :age, 
                                         gender = :gender, birthday_item = :birthday_item
@@ -83,7 +85,7 @@
         }
         
 
-        $statement = $db->prepare($sql);
+        $statement = $conn->prepare($sql);
         
         $statement->bindParam(':title',$title);
         $statement->bindParam(':author',$author);

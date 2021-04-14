@@ -13,6 +13,8 @@
     $statement->execute();
  
     $user = $statement->fetch(PDO::FETCH_ASSOC);
+
+    $statement->closeCursor();
  
     session_start();
  
@@ -38,11 +40,13 @@
     //     exit();
     // }
 
+
     $hashed = password_hash($password, PASSWORD_DEFAULT);
 
     $auth = false;
     if (!$user) $auth = false;
-    else $auth = password_verify($password, $hashed);
+    else $auth = password_verify($password, $user['password']); // this always returns false
+    //else $auth = password_verify($password, $hashed); // to be able to access login.php (because this always returns true)
 
     if (!$auth) {
         $_SESSION['errors'][] = "Your email/password are incorrect.";

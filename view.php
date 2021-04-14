@@ -5,8 +5,8 @@
         session_start();
     }
 
-    if (!isset($_SESSION['user'])) {
-        $_SESSION['errors'][] = "You must log in";
+    if(!isset($_SESSION['user'])){
+        $_SESSION['errors'][] = "You need to log in";
         header('Location: ./login.php');
         exit;
     }

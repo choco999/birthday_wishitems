@@ -1,7 +1,19 @@
 <?php require('header.php'); ?>
 
-    <?php
-      
+<?php
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
+
+    if (!isset($_SESSION['user'])) {
+        $_SESSION['errors'][] = "You must log in";
+        header('Location: ./login.php');
+        exit;
+    }
+
+    $user = $_SESSION['user'];
+    
+        
     require('connect.php');
 
     $sql = "SELECT * FROM course_project";
@@ -9,7 +21,7 @@
     $statement = $db->prepare($sql);
 
     $statement->execute();
-    
+
     $records = $statement->fetchAll();
 
     echo "<table class='table'><tbody>";
@@ -20,14 +32,14 @@
                         .$record['age'] . "</td><td>" 
                         .$record['gender'] . "</td><td>" 
                         .$record['birthday_item'] . "</td><td><a href='delete.php?id=" . $record['id'] ."'>Delete</a></td>
-                        <td><a href='index.php?id=" . $record['id'] . "'>Edit</a></td></tr>";
+                        <td><a href='mainform.php?id=" . $record['id'] . "'>Edit</a></td></tr>";
     }
 
     echo "</tbody></table>";
 
     $statement->closeCursor();
 
-    ?>
+?>
 
 <h2>Search Birthday Wish Items Here</h2>
 <form action="search_results.php" method="get">

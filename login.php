@@ -6,6 +6,8 @@
 
   // Clear the form values
   unset($_SESSION['register_values']);
+
+  //var_dump($register_values);
   
 ?>
 
@@ -34,6 +36,7 @@
 
                 <label for="password">Password:</label>
                 <input class="form-control" type="password" name="password" required>
+                <!-- <input class="form-control" type="password" name="password" value="<?= $register_values['password'] ?? null ?>" required> -->
 
                 <!-- Add the recaptcha field -->
                 <input type="hidden" name="recaptcha_response" id="recaptchaResponse">

@@ -21,7 +21,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" href="index.php"> Add New Post <span class="sr-only">(current)</span></a>
+                        <a class="nav-link active" href="mainform.php"> Add New Post <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="view.php">View Posts</a>

@@ -12,7 +12,7 @@
         $_SESSION['errors'] = $errors;
         $_SESSION['form_values'] = $_POST;
     
-        header("Location: index.php");
+        header("Location: mainform.php");
         exit;
         }
     }
